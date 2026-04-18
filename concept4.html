@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cottonwood FC — Hybrid Concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #C41E3A;
+      --red-hover: #A5182F;
+      --orange: #F7931E;
+      --dark: #1A1A1A;
+      --body: #3A3A3A;
+      --warm-white: #FAFAF8;
+      --light: #F3EEE8;
+      --border: #E5DDD4;
+      --white: #FFFFFF;
+      --dim: rgba(255,255,255,0.6);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--warm-white); color: var(--body); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: white; border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 72px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--body); text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--red); }
+    .nav-btn {
+      background: var(--red) !important; color: white !important;
+      padding: 11px 24px; border-radius: 28px;
+      box-shadow: 0 4px 12px rgba(196,30,58,0.28);
+      transition: background 0.2s !important;
+    }
+    .nav-btn:hover { background: var(--orange) !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); }
+
+    /* ── HERO ── */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; overflow: hidden; }
+
+    .hero-left {
+      background: white; padding: 80px 5% 80px 6%;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,30,58,0.08); color: var(--red);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      padding: 7px 14px; border-radius: 20px; margin-bottom: 28px; width: fit-content;
+    }
+    .hero-tag::before { content: '●'; font-size: 0.5rem; }
+    h1.hero-headline {
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 900; line-height: 1.08; color: var(--dark);
+      margin-bottom: 24px; letter-spacing: -1px; text-transform: uppercase;
+    }
+    h1.hero-headline em { font-style: italic; color: var(--red); }
+    .hero-mission {
+      font-size: 0.97rem; color: #666; line-height: 1.8;
+      max-width: 460px; margin-bottom: 40px; font-weight: 500;
+      border-left: 3px solid var(--red); padding-left: 16px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; padding: 15px 34px;
+      background: var(--red); color: white;
+      font-size: 0.82rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; border-radius: 28px;
+      box-shadow: 0 6px 20px rgba(196,30,58,0.35);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(196,30,58,0.45); background: var(--red-hover); }
+    .btn-outline {
+      display: inline-block; padding: 13px 34px;
+      border: 2px solid var(--border); color: var(--dark);
+      font-size: 0.82rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; border-radius: 28px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--red); background: rgba(196,30,58,0.04); }
+    .hero-badges { display: flex; gap: 32px; margin-top: 52px; padding-top: 36px; border-top: 1px solid var(--border); }
+    .hero-badge strong { display: block; font-size: 1.9rem; font-weight: 900; color: var(--red); line-height: 1; }
+    .hero-badge span { font-size: 0.72rem; color: #999; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+    .hero-right {
+      background: linear-gradient(145deg, var(--red) 0%, #8B0F20 60%, #5A0010 100%);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px;
+      padding: 60px 40px;
+    }
+    .hero-right-pattern {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .hero-shield {
+      position: relative; z-index: 2;
+      width: 140px; height: 158px;
+      background: rgba(255,255,255,0.12); border-radius: 12px 12px 70px 70px;
+      border: 2px solid rgba(255,255,255,0.2);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    }
+    .hero-shield img { width: 90px; height: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+    .hero-announcement {
+      position: relative; z-index: 2;
+      background: white; border-radius: 16px; padding: 26px 30px;
+      max-width: 320px; width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .announce-label { font-size: 0.66rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .announce-title { font-size: 1.15rem; font-weight: 900; color: var(--dark); margin-bottom: 8px; line-height: 1.3; text-transform: uppercase; }
+    .announce-detail { font-size: 0.8rem; color: #777; line-height: 1.65; margin-bottom: 18px; }
+    .announce-btn {
+      display: inline-block; padding: 11px 24px;
+      background: var(--red); color: white; font-size: 0.78rem; font-weight: 800;
+      border-radius: 24px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(196,30,58,0.35);
+    }
+    .hero-orange-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--orange), var(--red));
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--red);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat { padding: 28px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.2); color: white; }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+    .stat-lbl { font-size: 0.67rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 88px 5%; }
+    .sec-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 4px; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
+    .sec-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 48px; color: var(--dark); }
+    .sec-title.centered, .sec-eyebrow.centered { text-align: center; }
+
+    /* ── MISSION ── */
+    .mission-sect { background: var(--light); }
+    .mission-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .mission-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 5px; color: var(--orange); text-transform: uppercase; margin-bottom: 20px; }
+    .mission-quote {
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: 700; line-height: 1.7; color: var(--dark);
+      margin-bottom: 60px; position: relative; padding: 0 28px;
+    }
+    .mission-quote::before {
+      content: '"'; position: absolute; left: -4px; top: -24px;
+      font-size: 6rem; color: var(--red); line-height: 1; opacity: 0.25;
+      font-family: Georgia, serif;
+    }
+    .mission-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pillar {
+      background: white; border: 1px solid var(--border);
+      border-radius: 12px; padding: 36px 28px; text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .pillar::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .pillar:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); border-color: rgba(196,30,58,0.2); }
+    .pillar:hover::after { transform: scaleX(1); }
+    .pillar-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .pillar h3 { font-size: 0.92rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; color: var(--red); }
+    .pillar p { font-size: 0.83rem; color: #777; line-height: 1.75; }
+
+    /* ── QUICK ACTIONS ── */
+    .quick { background: var(--warm-white); }
+    .actions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .action-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 12px; padding: 34px 22px; text-align: center;
+      text-decoration: none; color: var(--dark);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      position: relative; overflow: hidden;
+    }
+    .action-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .action-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); border-color: rgba(196,30,58,0.25); }
+    .action-card:hover::after { transform: scaleX(1); }
+    .action-icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .action-card h3 { font-size: 0.88rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; color: var(--dark); }
+    .action-card p { font-size: 0.82rem; color: #888; line-height: 1.65; }
+    .action-arrow { margin-top: 18px; color: var(--red); font-size: 1.1rem; font-weight: 700; }
+
+    /* ── DEVELOPMENT PHILOSOPHY ── */
+    .dev-sect { background: var(--light); }
+    .dev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .dev-left h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900;
+      text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 20px;
+      line-height: 1.1; color: var(--dark);
+    }
+    .dev-left h2 span { color: var(--red); }
+    .dev-intro { font-size: 0.92rem; color: #777; line-height: 1.8; margin-bottom: 32px; }
+    .dev-cta {
+      display: inline-block; padding: 14px 32px;
+      background: var(--red); color: white;
+      font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; border-radius: 28px;
+      box-shadow: 0 4px 12px rgba(196,30,58,0.28);
+      transition: background 0.2s;
+    }
+    .dev-cta:hover { background: var(--orange); }
+    .dev-principles { display: flex; flex-direction: column; gap: 14px; }
+    .principle {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: white; border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 22px;
+      border-left: 4px solid var(--red);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: border-left-color 0.2s, box-shadow 0.2s;
+    }
+    .principle:hover { border-left-color: var(--orange); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    .principle-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .principle-text strong { display: block; font-size: 0.83rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .principle-text p { font-size: 0.8rem; color: #888; line-height: 1.65; }
+
+    /* ── PARENT EXPECTATIONS ── */
+    .parents-sect { background: var(--warm-white); }
+    .parents-inner { max-width: 800px; margin: 0 auto; }
+    .parents-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .parent-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 12px; padding: 32px 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .parent-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
+    .parent-icon { font-size: 2rem; margin-bottom: 16px; }
+    .parent-card h3 { font-size: 0.88rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+    .parent-card p { font-size: 0.85rem; color: #777; line-height: 1.75; }
+
+    /* ── NEWS ── */
+    .news-sect { background: var(--light); }
+    .news-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; }
+    .view-all { font-size: 0.8rem; font-weight: 700; color: var(--red); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; }
+    .view-all:hover { text-decoration: underline; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .news-card {
+      background: white; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .news-thumb { height: 175px; position: relative; display: flex; align-items: center; justify-content: center; }
+    .news-thumb.t1 { background: linear-gradient(135deg, #fce8eb, #f9c0c9); }
+    .news-thumb.t2 { background: linear-gradient(135deg, #fef0e0, #fcd9b0); }
+    .news-thumb.t3 { background: linear-gradient(135deg, #fce8eb, #fcd5ba); }
+    .news-emoji { font-size: 3.5rem; }
+    .news-badge {
+      position: absolute; top: 14px; left: 14px;
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 20px;
+    }
+    .badge-red { background: rgba(196,30,58,0.12); color: var(--red); }
+    .badge-orange { background: rgba(247,147,30,0.15); color: #b85a00; }
+    .badge-warm { background: rgba(196,30,58,0.1); color: var(--red); }
+    .news-body { padding: 22px; }
+    .news-date { font-size: 0.7rem; color: var(--orange); font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .news-ttl { font-size: 1rem; font-weight: 800; line-height: 1.4; margin-bottom: 10px; color: var(--dark); }
+    .news-exc { font-size: 0.82rem; color: #888; line-height: 1.65; margin-bottom: 14px; }
+    .news-link { font-size: 0.75rem; font-weight: 800; color: var(--red); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; }
+    .news-link:hover { text-decoration: underline; }
+
+    /* ── AGE GROUPS ── */
+    .age-sect { background: var(--warm-white); }
+    .age-intro { max-width: 560px; color: #888; line-height: 1.8; font-size: 0.92rem; margin-bottom: 52px; }
+    .age-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .age-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 10px; padding: 24px 14px; text-align: center;
+      text-decoration: none; color: var(--dark);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: all 0.25s;
+    }
+    .age-card:hover { background: var(--red); border-color: var(--red); transform: translateY(-4px); color: white; box-shadow: 0 10px 28px rgba(196,30,58,0.3); }
+    .age-hex {
+      width: 50px; height: 50px;
+      background: linear-gradient(145deg, var(--red), var(--orange));
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 900; color: white; margin: 0 auto 12px;
+    }
+    .age-name { font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+    .age-detail { font-size: 0.7rem; color: #aaa; }
+    .age-card:hover .age-detail { color: rgba(255,255,255,0.7); }
+
+    /* ── TRYOUTS BAND ── */
+    .tryouts-band {
+      background: linear-gradient(135deg, #8B0F20, var(--red), var(--orange));
+      padding: 72px 5%; display: flex; align-items: center; justify-content: space-between; gap: 32px;
+      color: white;
+    }
+    .tryouts-band h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; }
+    .tryouts-band p { margin-top: 8px; opacity: 0.9; font-size: 0.92rem; }
+    .btn-white { display: inline-block; padding: 15px 34px; background: white; color: var(--red); font-size: 0.82rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 28px; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+    .btn-white:hover { background: var(--dark); color: white; }
+
+    /* ── APPAREL ── */
+    .apparel-band {
+      background: var(--light);
+      padding: 64px 5%; display: flex; align-items: center; justify-content: space-between; gap: 32px;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .apparel-slogan { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; color: var(--dark); margin-bottom: 8px; }
+    .apparel-slogan em { font-style: italic; color: var(--red); }
+    .apparel-desc { font-size: 0.9rem; color: #888; line-height: 1.7; max-width: 480px; }
+    .apparel-tags { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+    .apparel-tag {
+      background: white; border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--body);
+    }
+
+    /* ── SPONSORS ── */
+    .sponsors-sect { background: white; text-align: center; padding: 72px 5%; }
+    .sponsor-strip { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 44px; }
+    .sponsor-box {
+      padding: 18px 36px; border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 0.9rem; font-weight: 800; letter-spacing: 3px; color: #bbb; text-transform: uppercase;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .sponsor-box:hover { color: var(--dark); border-color: var(--dark); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); border-top: 3px solid var(--red); padding: 64px 5% 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 52px; }
+    .f-logo img { height: 40px; width: auto; margin-bottom: 16px; display: block; filter: brightness(0) invert(1); }
+    .f-desc { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.75; margin-bottom: 18px; }
+    .f-contact { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+    .social-row { display: flex; gap: 10px; margin-top: 16px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; color: rgba(255,255,255,0.5);
+      font-size: 0.72rem; font-weight: 800;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-btn:hover { background: var(--red); color: white; border-color: var(--red); }
+    .social-handle { font-size: 0.7rem; color: rgba(255,255,255,0.28); margin-top: 10px; }
+    .f-col h4 { font-size: 0.65rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+    .f-col ul { list-style: none; }
+    .f-col ul li { margin-bottom: 11px; }
+    .f-col ul li a { font-size: 0.82rem; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s; }
+    .f-col ul li a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 0.77rem; color: rgba(255,255,255,0.26); }
+
+    /* ── BADGES ── */
+    .concept-badge {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: var(--red); color: white;
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(196,30,58,0.35);
+    }
+    .back-link {
+      position: fixed; top: 88px; left: 20px; z-index: 999;
+      background: white; color: var(--dark); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+      padding: 8px 16px; border-radius: 4px; text-decoration: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12); border: 1px solid var(--border);
+    }
+    .back-link:hover { background: var(--red); color: white; border-color: var(--red); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 360px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat { border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .mission-pillars { grid-template-columns: 1fr; }
+      .actions-grid { grid-template-columns: repeat(2, 1fr); }
+      .dev-grid { grid-template-columns: 1fr; }
+      .parents-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .age-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .tryouts-band, .apparel-band { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 60px 5%; }
+      .age-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">← All Concepts</a>
+<div class="concept-badge">Concept 4 · Hybrid</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="cfc-logo-long.png" alt="Cottonwood FC">
+  </a>
+  <div class="nav-links">
+    <a href="#">Programs</a>
+    <a href="#">Teams</a>
+    <a href="#">Schedule</a>
+    <a href="#">About</a>
+    <a href="#" class="nav-btn">Register Now</a>
+  </div>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">2026–2027 Tryouts Now Open</div>
+    <h1 class="hero-headline">Where <em>Champions</em><br>Are Made</h1>
+    <p class="hero-mission">Developing young men and women of character and integrity — cultivating their growth as soccer players and a life-long passion for the beautiful game.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">View Tryout Dates</a>
+      <a href="#" class="btn-outline">Explore Teams</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><strong>73</strong><span>Active Teams</span></div>
+      <div class="hero-badge"><strong>1,261</strong><span>Players Registered</span></div>
+      <div class="hero-badge"><strong>Est. 2014</strong><span>Cottonwood Heights</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-pattern"></div>
+    <div class="hero-shield">
+      <img src="cfc-badge.png" alt="CFC">
+    </div>
+    <div class="hero-announcement">
+      <div class="announce-label">🗓 Now Open</div>
+      <div class="announce-title">2026–2027 Tryouts</div>
+      <div class="announce-detail">Butler Fields, west of Butler Middle School. No fee to try out. Registration required. Check your age group schedule.</div>
+      <a href="#" class="announce-btn">See All Dates →</a>
+    </div>
+    <div class="hero-orange-bar"></div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">73</div><div class="stat-lbl">Active Teams</div></div>
+  <div class="stat"><div class="stat-num">1,261</div><div class="stat-lbl">Players Registered</div></div>
+  <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years Strong</div></div>
+  <div class="stat"><div class="stat-num">U6–U19</div><div class="stat-lbl">Age Groups</div></div>
+</div>
+
+<!-- MISSION -->
+<section class="mission-sect">
+  <div class="mission-inner">
+    <div class="mission-eyebrow">Our Purpose</div>
+    <p class="mission-quote">The mission of Cottonwood Football Club is to develop young men and women of character and integrity by cultivating their growth as soccer players and a life-long passion for the 'beautiful game.'</p>
+    <div class="mission-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">⚡</div>
+        <h3>Build Players</h3>
+        <p>Principle-based coaching that develops soccer IQ and technical skills without position locks — everyone plays, everyone develops.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">❤️</div>
+        <h3>Build People</h3>
+        <p>We develop character and integrity alongside athletic ability. Respectful coaches who players want to emulate.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🏆</div>
+        <h3>Build Champions</h3>
+        <p>73 teams competing at the highest levels across UYSA Premier, SCL, IRL, and X-League. Real competition. Real results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK ACTIONS -->
+<section class="quick">
+  <div class="sec-eyebrow centered">Jump Right In</div>
+  <div class="sec-title centered">Everything You Need</div>
+  <div class="actions-grid">
+    <a href="#" class="action-card">
+      <div class="action-icon">⚽</div>
+      <h3>Tryouts</h3>
+      <p>2026–2027 tryouts open. Check your age group schedule at Butler Fields. No fee to try out.</p>
+      <div class="action-arrow">→</div>
+    </a>
+    <a href="#" class="action-card">
+      <div class="action-icon">📋</div>
+      <h3>Register</h3>
+      <p>Online registration via UYSA SportsAffinity. You'll need an assignment code from your Team Manager.</p>
+      <div class="action-arrow">→</div>
+    </a>
+    <a href="#" class="action-card">
+      <div class="action-icon">💰</div>
+      <h3>Fees</h3>
+      <p>Full 2025–2026 fee breakdown — UYSA registration, league, club fees, and uniform costs explained.</p>
+      <div class="action-arrow">→</div>
+    </a>
+    <a href="#" class="action-card">
+      <div class="action-icon">📅</div>
+      <h3>Schedule</h3>
+      <p>Match schedules, academy sessions, and club events — all in one place.</p>
+      <div class="action-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- DEVELOPMENT PHILOSOPHY -->
+<section class="dev-sect">
+  <div class="dev-grid">
+    <div class="dev-left">
+      <div class="sec-eyebrow">How We Coach</div>
+      <h2>Player Development<br><span>Done Right</span></h2>
+      <p class="dev-intro">At Cottonwood FC, we believe in building complete players — not just athletes who follow instructions, but thinkers who understand the game and love to play it.</p>
+      <a href="#" class="dev-cta">Meet Our Coaches →</a>
+    </div>
+    <div class="dev-principles">
+      <div class="principle">
+        <div class="principle-icon">🎯</div>
+        <div class="principle-text">
+          <strong>Everyone Plays</strong>
+          <p>No position lock until older ages. Every player gets significant time on the field — we develop the whole player.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">🧠</div>
+        <div class="principle-text">
+          <strong>Think, Don't Just Perform</strong>
+          <p>We avoid "joystick" coaching. Players learn to read the game and make decisions — we guide, not dictate.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">⚽</div>
+        <div class="principle-text">
+          <strong>Play More, Wait Less</strong>
+          <p>Training prioritizes playing time — minimal lines, laps, and lectures. Maximum touches on the ball.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">💪</div>
+        <div class="principle-text">
+          <strong>Build Players &amp; People</strong>
+          <p>Coaches correct players without being demeaning. We build character and integrity alongside athletic skill.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARENT EXPECTATIONS -->
+<section class="parents-sect">
+  <div class="parents-inner">
+    <div class="sec-eyebrow centered">What We Ask of You</div>
+    <div class="sec-title centered">Our Expectations of Parents</div>
+    <div class="parents-grid">
+      <div class="parent-card">
+        <div class="parent-icon">📣</div>
+        <h3>Cheer &amp; Encourage</h3>
+        <p>Be the loudest voice in your player's corner. Cheer, encourage, and support — and let the coaches do the coaching on the sideline.</p>
+      </div>
+      <div class="parent-card">
+        <div class="parent-icon">🤝</div>
+        <h3>Positive Game Conduct</h3>
+        <p>Only positive commentary toward referees and opposing players. We compete hard and we compete clean — that's the Cottonwood FC standard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-sect">
+  <div class="news-header">
+    <div>
+      <div class="sec-eyebrow">What's Happening</div>
+      <div class="sec-title" style="margin-bottom:0">Club News</div>
+    </div>
+    <a href="#" class="view-all">View All News →</a>
+  </div>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-thumb t1"><div class="news-emoji">🏟️</div><span class="news-badge badge-red">Tryouts</span></div>
+      <div class="news-body">
+        <div class="news-date">April 2026</div>
+        <div class="news-ttl">2026–2027 Season Tryouts Now Open</div>
+        <div class="news-exc">No fee to try out, registration required. Butler Fields, west of Butler Middle School. Check-in 30 minutes early.</div>
+        <a href="#" class="news-link">View Dates →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb t2"><div class="news-emoji">👕</div><span class="news-badge badge-orange">Apparel</span></div>
+      <div class="news-body">
+        <div class="news-date">March 2026</div>
+        <div class="news-ttl">2025–27 Adidas Uniform Package Available</div>
+        <div class="news-exc">New Adidas Tiro 25 home and away kits ready to order via soccer.com. Confirm your jersey number with your Team Manager. Full package ~$260.</div>
+        <a href="#" class="news-link">Order Now →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb t3"><div class="news-emoji">🎉</div><span class="news-badge badge-warm">Events</span></div>
+      <div class="news-body">
+        <div class="news-date">July 2026</div>
+        <div class="news-ttl">Butlerville Days Parade — July 24th</div>
+        <div class="news-exc">CFC marches in the annual Butlerville Days Parade. Thousands of Otter Pops to give away. A CFC community tradition since 2014.</div>
+        <a href="#" class="news-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGE GROUPS -->
+<section class="age-sect">
+  <div class="sec-eyebrow">2025–2026 Season</div>
+  <div class="sec-title">73 Teams. Every Age. One Club.</div>
+  <p class="age-intro">From Academy players aged 5–6 to our competitive U19 squads, Cottonwood FC has a team for every player. 1,261 players registered for tryouts. Competing across UYSA Premier, SCL, IRL, and X-League.</p>
+  <div class="age-grid">
+    <a href="#" class="age-card"><div class="age-hex">U6</div><div class="age-name">Academy</div><div class="age-detail">Ages 5–6</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U8</div><div class="age-name">Academy</div><div class="age-detail">Ages 7–8</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U10</div><div class="age-name">Competitive</div><div class="age-detail">Ages 9–10</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U12</div><div class="age-name">Competitive</div><div class="age-detail">Ages 11–12</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U14</div><div class="age-name">Premier</div><div class="age-detail">Ages 13–14</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U15</div><div class="age-name">Premier</div><div class="age-detail">Age 15</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U16</div><div class="age-name">Premier</div><div class="age-detail">Age 16</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U17</div><div class="age-name">Premier</div><div class="age-detail">Age 17</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U18</div><div class="age-name">Elite</div><div class="age-detail">Age 18</div></a>
+    <a href="#" class="age-card"><div class="age-hex">U19</div><div class="age-name">Elite</div><div class="age-detail">Age 19</div></a>
+  </div>
+</section>
+
+<!-- TRYOUTS BAND -->
+<div class="tryouts-band">
+  <div>
+    <h2>2026–2027 Tryouts Are Open</h2>
+    <p>Butler Fields · West of Butler Middle School · No fee to try out · Registration required</p>
+  </div>
+  <a href="#" class="btn-white">Register for Tryouts</a>
+</div>
+
+<!-- APPAREL -->
+<div class="apparel-band">
+  <div>
+    <div class="apparel-slogan">Look Good.<br><em>Play Good.</em></div>
+    <p class="apparel-desc">Adidas-branded CFC gear, custom fan apparel, and official Tiro 25 uniform packages — all at cottonwoodfc.org/apparel. Each player receives a $25 off coupon.</p>
+    <div class="apparel-tags">
+      <span class="apparel-tag">Adidas Tiro 25</span>
+      <span class="apparel-tag">Fan Gear</span>
+      <span class="apparel-tag">$25 Coupon</span>
+    </div>
+  </div>
+  <a href="#" class="btn-primary">Shop Gear →</a>
+</div>
+
+<!-- SPONSORS -->
+<section class="sponsors-sect">
+  <div class="sec-eyebrow centered">Proud Partners</div>
+  <div class="sec-title centered" style="margin-bottom:0">Our Sponsors</div>
+  <div class="sponsor-strip">
+    <div class="sponsor-box">Adidas</div>
+    <div class="sponsor-box">UYSA</div>
+    <div class="sponsor-box">US Youth Soccer</div>
+    <div class="sponsor-box">soccer.com</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-logo"><img src="cfc-logo-long.png" alt="Cottonwood FC"></div>
+      <p class="f-desc">Building champions on and off the field since 2014. Youth soccer development for players ages 5–19 in Cottonwood Heights, Utah.</p>
+      <p class="f-contact">📧 info@cottonwoodfc.org</p>
+      <div class="social-row">
+        <a href="#" class="social-btn">IG</a>
+        <a href="#" class="social-btn">FB</a>
+        <a href="#" class="social-btn">𝕏</a>
+      </div>
+      <p class="social-handle">@cottonwood_fc · @CottonwoodFC</p>
+    </div>
+    <div class="f-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">Academy (U6–U8)</a></li>
+        <li><a href="#">Competitive</a></li>
+        <li><a href="#">Premier</a></li>
+        <li><a href="#">Goalkeeping</a></li>
+        <li><a href="#">Summer Training Camp</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Registration</h4>
+      <ul>
+        <li><a href="#">Tryouts 2026–27</a></li>
+        <li><a href="#">Online Registration</a></li>
+        <li><a href="#">Fees &amp; Costs</a></li>
+        <li><a href="#">Uniforms</a></li>
+        <li><a href="#">Fan Gear</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Club</h4>
+      <ul>
+        <li><a href="#">About CFC</a></li>
+        <li><a href="#">Board of Directors</a></li>
+        <li><a href="#">Teams &amp; Schedules</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Links</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Cottonwood Football Club · cottonwoodfc.org · Cottonwood Heights, Utah</p>
+    <p>Est. 2014</p>
+  </div>
+</footer>
+
+</body>
+</html>

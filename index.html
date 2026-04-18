@@ -32,7 +32,7 @@
     .intro h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
     .intro p { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.8; }
 
-    .concepts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .concepts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
 
     .concept-card {
       border: 1px solid rgba(255,255,255,0.08);
@@ -135,8 +135,38 @@
     .note p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
     .note p strong { color: rgba(255,255,255,0.7); }
 
-    @media (max-width: 900px) {
-      .concepts-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    /* Concept 4 - Hybrid preview */
+    .preview-4 { background: #FAFAF8; }
+    .preview-4 .p-nav { position: absolute; top: 0; left: 0; right: 0; height: 28px; background: #FAFAF8; border-bottom: 1px solid #E5DDD4; display: flex; align-items: center; padding: 0 16px; gap: 8px; }
+    .preview-4 .p-nav-logo { font-size: 0.52rem; font-weight: 900; color: #1A1A1A; letter-spacing: 1px; font-family: 'Inter', sans-serif; }
+    .preview-4 .p-nav-logo em { color: #C41E3A; font-style: normal; }
+    .preview-4 .p-left { position: absolute; left: 0; top: 28px; bottom: 0; width: 55%; padding: 14px 14px; display: flex; flex-direction: column; justify-content: center; }
+    .preview-4 .p-tag { font-size: 0.42rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #C41E3A; background: rgba(196,30,58,0.08); padding: 2px 7px; border-radius: 10px; width: fit-content; margin-bottom: 7px; }
+    .preview-4 .p-h1 { font-size: 0.95rem; font-weight: 900; color: #1A1A1A; line-height: 1.1; text-transform: uppercase; letter-spacing: -0.5px; }
+    .preview-4 .p-h1 span { color: #C41E3A; }
+    .preview-4 .p-stats { display: flex; gap: 6px; margin-top: 8px; }
+    .preview-4 .p-stat { padding: 3px 7px; background: white; border: 1px solid #E5DDD4; border-radius: 4px; font-size: 0.38rem; font-weight: 700; color: #1A1A1A; }
+    .preview-4 .p-btn { margin-top: 9px; display: inline-block; padding: 5px 12px; background: #C41E3A; color: white; font-size: 0.48rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; border-radius: 3px; width: fit-content; }
+    .preview-4 .p-right { position: absolute; right: 0; top: 28px; bottom: 0; width: 45%; background: linear-gradient(145deg, #C41E3A, #8B0F20); display: flex; align-items: center; justify-content: center; }
+    .preview-4 .p-shield { width: 48px; height: 54px; background: rgba(255,255,255,0.15); border-radius: 4px 4px 50% 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 900; color: white; border: 2px solid rgba(255,255,255,0.3); }
+
+    .c4 .concept-name { color: #C41E3A; }
+    .c4 .trait { background: rgba(196,30,58,0.1); color: #C41E3A; border: 1px solid rgba(196,30,58,0.2); }
+    .c4 .concept-cta { background: linear-gradient(135deg, #C41E3A, #F7931E); }
+    .c4 .concept-body { background: #111118; }
+
+    .concept-badge {
+      display: inline-block; font-size: 0.6rem; font-weight: 800; letter-spacing: 2px;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 10px;
+      margin-left: 8px; vertical-align: middle;
+    }
+    .badge-new { background: rgba(247,147,30,0.2); color: #F7931E; border: 1px solid rgba(247,147,30,0.35); }
+
+    @media (max-width: 1000px) {
+      .concepts-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+    }
+    @media (min-width: 1001px) and (max-width: 1200px) {
+      .concepts-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -144,7 +174,7 @@
   <header>
     <div class="header-left">
       <h1>Cottonwood <span>FC</span> — Design Concepts</h1>
-      <p>Three distinct directions for the new cottonwoodfc.org · April 2026</p>
+      <p>Four design directions for the new cottonwoodfc.org · April 2026</p>
     </div>
     <div class="header-badge">Board Review</div>
   </header>
@@ -152,7 +182,7 @@
   <main>
     <div class="intro">
       <h2>Pick Your Direction</h2>
-      <p>Three fully designed homepage concepts for the Cottonwood FC redesign. Each uses real club content, red &amp; orange branding, and a modern mobile-first layout. Click any concept to explore the full scrollable page.</p>
+      <p>Four fully designed homepage concepts for the Cottonwood FC redesign. Each uses real club content, red &amp; orange branding, and a modern mobile-first layout. Concept 4 is a hybrid combining the best of Concepts 1 &amp; 2. Click any concept to explore the full scrollable page.</p>
     </div>
 
     <div class="concepts-grid">
@@ -276,10 +306,52 @@
         </div>
       </a>
 
+      <!-- Concept 4 -->
+      <a href="concept4.html" class="concept-card c4">
+        <div class="concept-preview preview-4">
+          <div class="p-nav">
+            <div class="p-nav-logo"><em>COTTONWOOD</em> FC</div>
+            <div style="margin-left:auto;padding:2px 10px;background:#C41E3A;color:white;font-size:0.42rem;font-weight:800;border-radius:12px">Register Now</div>
+          </div>
+          <div class="p-left">
+            <div class="p-tag">2026–27 Tryouts Open</div>
+            <div class="p-h1">Developing<br><span>Champions.</span><br>Building Futures.</div>
+            <div class="p-stats">
+              <div class="p-stat">73 Teams</div>
+              <div class="p-stat">U6–U19</div>
+            </div>
+            <div class="p-btn">View Tryout Dates →</div>
+          </div>
+          <div class="p-right">
+            <div class="p-shield">CFC</div>
+          </div>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 04 <span class="concept-badge badge-new">NEW · Hybrid</span></div>
+          <div class="concept-name">Bright &amp; Bold</div>
+          <div class="concept-tagline">The best of both worlds — Concept 2's clean white palette and split hero layout combined with Concept 1's athletic Montserrat type, real CFC logo, and all content sections. Polished, energetic, and family-friendly.</div>
+          <div class="palette">
+            <div class="swatch" style="background:#C41E3A" title="Deep Red"></div>
+            <div class="swatch" style="background:#F7931E" title="Warm Orange"></div>
+            <div class="swatch" style="background:#FAFAF8;border-color:rgba(255,255,255,0.15)" title="Warm White"></div>
+            <div class="swatch" style="background:#F3EEE8;border-color:rgba(255,255,255,0.1)" title="Light Warm"></div>
+            <div class="swatch" style="background:#1A1A1A" title="Dark"></div>
+          </div>
+          <div class="concept-traits">
+            <span class="trait">Light Background</span>
+            <span class="trait">Split Hero</span>
+            <span class="trait">Montserrat</span>
+            <span class="trait">Real CFC Logo</span>
+            <span class="trait">All Sections</span>
+          </div>
+          <div class="concept-cta">View Full Concept →</div>
+        </div>
+      </a>
+
     </div>
 
     <div class="note">
-      <p><strong>What's next:</strong> Pick a concept direction (or mix elements from multiple) and we'll build the full site from there — inner pages, mobile nav, forms, and then connect it all back to WordPress. These are built with real CFC content and your red/orange color system.</p>
+      <p><strong>What's next:</strong> Pick a concept direction — <strong>Concept 4 (Hybrid)</strong> blends the light/white palette of Concept 2 with the bold Montserrat type and all content sections from Concept 1. Once the board picks a direction, we'll build out the inner pages, mobile nav, forms, and connect it back to WordPress.</p>
     </div>
   </main>
 </body>
