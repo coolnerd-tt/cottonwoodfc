@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cottonwood FC — Design Concepts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0A0A0F; color: white; min-height: 100vh; }
+
+    header {
+      padding: 48px 6% 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .header-left h1 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.5px; }
+    .header-left h1 span { color: #E8192C; }
+    .header-left p { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-top: 6px; }
+    .header-badge {
+      background: rgba(232,25,44,0.12); border: 1px solid rgba(232,25,44,0.3);
+      color: #E8192C; font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; padding: 8px 16px; border-radius: 4px;
+    }
+
+    main { padding: 60px 6% 80px; }
+
+    .intro {
+      max-width: 680px; margin: 0 auto 64px; text-align: center;
+    }
+    .intro h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .intro p { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.8; }
+
+    .concepts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+    .concept-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      text-decoration: none; color: white;
+      display: flex; flex-direction: column;
+    }
+    .concept-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+
+    .concept-preview {
+      height: 220px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Concept 1 - Fire preview */
+    .preview-1 {
+      background: linear-gradient(135deg, #0D0D0D 0%, #1a0609 50%, #CC1E2B 100%);
+    }
+    .preview-1 .p-nav { position: absolute; top: 0; left: 0; right: 0; height: 28px; background: rgba(0,0,0,0.7); border-bottom: 1px solid #CC1E2B; display: flex; align-items: center; padding: 0 16px; gap: 12px; }
+    .p-nav-dot { width: 6px; height: 6px; background: #CC1E2B; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+    .preview-1 .p-hero { padding-top: 28px; display: flex; flex-direction: column; justify-content: center; padding-left: 20px; height: 100%; }
+    .preview-1 .p-h1 { font-size: 1.6rem; font-weight: 900; line-height: 1.0; text-transform: uppercase; letter-spacing: -1px; }
+    .preview-1 .p-h1 em { color: #FF6B35; font-style: italic; }
+    .preview-1 .p-btn { margin-top: 10px; display: inline-block; padding: 6px 14px; background: linear-gradient(135deg, #CC1E2B, #FF6B35); font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; width: fit-content; }
+    .preview-1 .p-stripe { position: absolute; right: 0; top: 28px; bottom: 0; width: 35%; background: linear-gradient(160deg, #CC1E2B, #8B0000); clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); }
+
+    /* Concept 2 - Community preview */
+    .preview-2 { background: white; }
+    .preview-2 .p-nav { position: absolute; top: 0; left: 0; right: 0; height: 28px; background: white; border-bottom: 1px solid #E8E2DA; display: flex; align-items: center; padding: 0 16px; gap: 8px; }
+    .preview-2 .p-nav-crest { width: 16px; height: 16px; background: #C41E3A; border-radius: 2px 2px 50% 50%; }
+    .preview-2 .p-nav-name { font-size: 0.55rem; font-weight: 800; color: #1A1A1A; }
+    .preview-2 .p-left { position: absolute; left: 0; top: 28px; bottom: 0; width: 55%; padding: 16px 16px; display: flex; flex-direction: column; justify-content: center; }
+    .preview-2 .p-tag { font-size: 0.45rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #C41E3A; background: rgba(196,30,58,0.08); padding: 3px 8px; border-radius: 10px; width: fit-content; margin-bottom: 8px; }
+    .preview-2 .p-h1 { font-size: 1rem; font-weight: 800; color: #1A1A1A; line-height: 1.2; }
+    .preview-2 .p-h1 span { color: #C41E3A; }
+    .preview-2 .p-btn { margin-top: 10px; display: inline-block; padding: 5px 12px; background: #C41E3A; color: white; font-size: 0.5rem; font-weight: 700; border-radius: 12px; width: fit-content; }
+    .preview-2 .p-right { position: absolute; right: 0; top: 28px; bottom: 0; width: 45%; background: linear-gradient(145deg, #C41E3A, #8B0F20); display: flex; align-items: center; justify-content: center; }
+    .preview-2 .p-shield { width: 52px; height: 58px; background: rgba(255,255,255,0.15); border-radius: 4px 4px 50% 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900; color: white; }
+
+    /* Concept 3 - Edge preview */
+    .preview-3 { background: #060608; }
+    .preview-3 .p-nav { position: absolute; top: 0; left: 0; right: 0; height: 28px; background: rgba(6,6,8,0.97); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 16px; gap: 8px; }
+    .preview-3 .p-monogram { width: 14px; height: 14px; border: 1px solid #E8192C; display: flex; align-items: center; justify-content: center; font-size: 0.38rem; font-weight: 900; }
+    .preview-3 .p-nav-name { font-size: 0.5rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+    .preview-3 .p-red-bar { position: absolute; left: 0; top: 28px; bottom: 0; width: 3px; background: linear-gradient(180deg, #FF6B35, #E8192C); }
+    .preview-3 .p-content { padding: 40px 20px 16px; }
+    .preview-3 .p-overline { font-size: 0.4rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #E8192C; margin-bottom: 6px; }
+    .preview-3 .p-h1 { font-size: 1.5rem; font-weight: 900; line-height: 0.95; text-transform: uppercase; letter-spacing: -1px; color: white; }
+    .preview-3 .p-h1 .r { color: #E8192C; }
+    .preview-3 .p-h1 .d { color: rgba(255,255,255,0.18); font-weight: 300; font-size: 0.6em; display: block; margin-top: 4px; letter-spacing: 0px; }
+    .preview-3 .p-divider { width: 32px; height: 1px; background: linear-gradient(90deg, #E8192C, #FF6B35); margin: 8px 0; }
+    .preview-3 .p-btn { display: inline-block; padding: 5px 12px; background: #E8192C; border-left: 2px solid #FF6B35; font-size: 0.5rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .preview-3 .p-ticker { position: absolute; bottom: 0; left: 0; right: 0; height: 18px; background: #E8192C; display: flex; align-items: center; padding: 0 10px; font-size: 0.42rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.8); gap: 16px; overflow: hidden; }
+
+    /* Card body */
+    .concept-body { padding: 28px; flex: 1; background: #111118; }
+    .concept-num {
+      display: inline-block; font-size: 0.62rem; font-weight: 800; letter-spacing: 4px;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+      margin-bottom: 12px;
+    }
+    .concept-name { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .concept-tagline { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 22px; }
+    .palette { display: flex; gap: 6px; margin-bottom: 20px; }
+    .swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.1); }
+    .concept-traits { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .trait {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 1px;
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .concept-cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px; font-size: 0.78rem; font-weight: 700; letter-spacing: 1px;
+      text-align: center; text-decoration: none; color: white;
+      transition: opacity 0.2s;
+    }
+    .concept-cta:hover { opacity: 0.85; }
+
+    /* Concept-specific colors */
+    .c1 .concept-name { color: #FF6B35; }
+    .c1 .trait { background: rgba(204,30,43,0.15); color: #FF6B35; border: 1px solid rgba(204,30,43,0.25); }
+    .c1 .concept-cta { background: linear-gradient(135deg, #CC1E2B, #FF6B35); }
+
+    .c2 .concept-name { color: #F7931E; }
+    .c2 .trait { background: rgba(196,30,58,0.12); color: #F7931E; border: 1px solid rgba(247,147,30,0.2); }
+    .c2 .concept-cta { background: #C41E3A; }
+    .c2 .concept-body { background: #121218; }
+
+    .c3 .concept-name { color: #E8192C; }
+    .c3 .trait { background: rgba(232,25,44,0.1); color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.1); }
+    .c3 .concept-cta { background: #E8192C; border-left: 3px solid #FF6B35; }
+    .c3 .concept-body { background: #0D0D12; }
+
+    .note {
+      max-width: 680px; margin: 52px auto 0; text-align: center;
+      padding: 24px; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+    }
+    .note p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
+    .note p strong { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 900px) {
+      .concepts-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>Cottonwood <span>FC</span> — Design Concepts</h1>
+      <p>Three distinct directions for the new cottonwoodfc.org · April 2026</p>
+    </div>
+    <div class="header-badge">Board Review</div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h2>Pick Your Direction</h2>
+      <p>Three fully designed homepage concepts for the Cottonwood FC redesign. Each uses real club content, red &amp; orange branding, and a modern mobile-first layout. Click any concept to explore the full scrollable page.</p>
+    </div>
+
+    <div class="concepts-grid">
+
+      <!-- Concept 1 -->
+      <a href="concept1.html" class="concept-card c1">
+        <div class="concept-preview preview-1">
+          <div class="p-stripe"></div>
+          <div class="p-nav">
+            <div class="p-nav-dot"></div>
+            <div style="font-size:0.5rem;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,0.7)">COTTONWOOD FC</div>
+            <div style="margin-left:auto;padding:2px 8px;background:#CC1E2B;font-size:0.42rem;font-weight:800;letter-spacing:1px;border-radius:2px">REGISTER</div>
+          </div>
+          <div class="p-hero">
+            <div class="p-h1">Where <em>Champions</em><br>Are Made</div>
+            <div class="p-btn">View Tryout Dates</div>
+          </div>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 01</div>
+          <div class="concept-name">Fire &amp; Energy</div>
+          <div class="concept-tagline">Dark, bold, and athletic. Sports-brand energy with red-to-orange gradients, diagonal accents, and oversized Montserrat typography. Built to feel like a Nike or Adidas campaign.</div>
+          <div class="palette">
+            <div class="swatch" style="background:#CC1E2B" title="Primary Red"></div>
+            <div class="swatch" style="background:#FF6B35" title="Orange"></div>
+            <div class="swatch" style="background:#0D0D0D" title="Dark"></div>
+            <div class="swatch" style="background:#1A1A1A" title="Card"></div>
+            <div class="swatch" style="background:#FFFFFF;border-color:rgba(255,255,255,0.2)" title="White"></div>
+          </div>
+          <div class="concept-traits">
+            <span class="trait">Dark Background</span>
+            <span class="trait">Bold Gradients</span>
+            <span class="trait">Montserrat</span>
+            <span class="trait">Diagonal Accents</span>
+            <span class="trait">High Energy</span>
+          </div>
+          <div class="concept-cta">View Full Concept →</div>
+        </div>
+      </a>
+
+      <!-- Concept 2 -->
+      <a href="concept2.html" class="concept-card c2">
+        <div class="concept-preview preview-2">
+          <div class="p-left">
+            <div class="p-tag">2026–27 Tryouts Open</div>
+            <div class="p-h1">Developing Players.<br><span>Building</span><br>Community.</div>
+            <div class="p-btn">Register for Tryouts</div>
+          </div>
+          <div class="p-right">
+            <div class="p-shield">CFC</div>
+          </div>
+          <div class="p-nav">
+            <div class="p-nav-crest"></div>
+            <div class="p-nav-name">Cottonwood FC</div>
+            <div style="margin-left:auto;padding:2px 8px;background:#C41E3A;color:white;font-size:0.42rem;font-weight:800;border-radius:8px">Register</div>
+          </div>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 02</div>
+          <div class="concept-name">Roots &amp; Community</div>
+          <div class="concept-tagline">Clean, white-forward, and welcoming. A neighborhood club feel with warm tones, rounded corners, and Poppins type. Designed to appeal to families at every skill level.</div>
+          <div class="palette">
+            <div class="swatch" style="background:#C41E3A" title="Deep Red"></div>
+            <div class="swatch" style="background:#F7931E" title="Warm Orange"></div>
+            <div class="swatch" style="background:#FAFAF8;border-color:rgba(255,255,255,0.15)" title="Warm White"></div>
+            <div class="swatch" style="background:#2D6A2D" title="Green Accent"></div>
+            <div class="swatch" style="background:#1A1A1A" title="Dark"></div>
+          </div>
+          <div class="concept-traits">
+            <span class="trait">Light Background</span>
+            <span class="trait">Rounded Cards</span>
+            <span class="trait">Poppins</span>
+            <span class="trait">Split Hero</span>
+            <span class="trait">Warm &amp; Welcoming</span>
+          </div>
+          <div class="concept-cta">View Full Concept →</div>
+        </div>
+      </a>
+
+      <!-- Concept 3 -->
+      <a href="concept3.html" class="concept-card c3">
+        <div class="concept-preview preview-3">
+          <div class="p-red-bar"></div>
+          <div class="p-nav">
+            <div class="p-monogram">CFC</div>
+            <div class="p-nav-name">COTTONWOOD FC</div>
+            <div style="margin-left:auto;padding:2px 8px;background:#E8192C;border-left:1.5px solid #FF6B35;font-size:0.42rem;font-weight:800;letter-spacing:1px;color:white">▶ REGISTER</div>
+          </div>
+          <div class="p-content">
+            <div class="p-overline">Cottonwood Heights, Utah</div>
+            <div class="p-h1">COTTON-<br><span class="r">WOOD</span><span class="d">Elite Youth Soccer · Utah</span></div>
+            <div class="p-divider"></div>
+            <div class="p-btn">View Tryout Dates</div>
+          </div>
+          <div class="p-ticker">
+            <span>◆ 73 TEAMS</span>
+            <span>◆ 2026–27 TRYOUTS OPEN</span>
+            <span>◆ BUTLER FIELDS</span>
+            <span>◆ U6–U19</span>
+          </div>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 03</div>
+          <div class="concept-name">The Edge</div>
+          <div class="concept-tagline">Dark, minimal, and editorial. A professional club aesthetic with Inter typography, sharp geometric accents, a scrolling news ticker, and a live schedule table on the homepage.</div>
+          <div class="palette">
+            <div class="swatch" style="background:#E8192C" title="Red"></div>
+            <div class="swatch" style="background:#FF6B35" title="Orange"></div>
+            <div class="swatch" style="background:#060608" title="Near Black"></div>
+            <div class="swatch" style="background:#111118" title="Card Dark"></div>
+            <div class="swatch" style="background:#FFFFFF;border-color:rgba(255,255,255,0.15)" title="White Text"></div>
+          </div>
+          <div class="concept-traits">
+            <span class="trait">Dark Mode</span>
+            <span class="trait">Schedule Table</span>
+            <span class="trait">Inter Font</span>
+            <span class="trait">News Ticker</span>
+            <span class="trait">Editorial</span>
+          </div>
+          <div class="concept-cta">View Full Concept →</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <p><strong>What's next:</strong> Pick a concept direction (or mix elements from multiple) and we'll build the full site from there — inner pages, mobile nav, forms, and then connect it all back to WordPress. These are built with real CFC content and your red/orange color system.</p>
+    </div>
+  </main>
+</body>
+</html>
