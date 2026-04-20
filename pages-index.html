@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inner Pages — Cottonwood FC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#0A0A0F;color:white;min-height:100vh}
+    header{padding:40px 6% 36px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between}
+    .header-left h1{font-size:1.3rem;font-weight:900;letter-spacing:-0.5px}
+    .header-left h1 span{color:#E8192C}
+    .header-left p{font-size:0.85rem;color:rgba(255,255,255,0.4);margin-top:5px}
+    .back-btn{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;padding:8px 16px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;transition:all 0.2s}
+    .back-btn:hover{color:white;border-color:rgba(255,255,255,0.3)}
+    main{padding:56px 6% 80px}
+    .intro{max-width:640px;margin:0 auto 52px;text-align:center}
+    .intro h2{font-size:1.8rem;font-weight:800;margin-bottom:12px;letter-spacing:-0.5px}
+    .intro p{font-size:0.9rem;color:rgba(255,255,255,0.45);line-height:1.8}
+    .pages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+    .page-card{border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;text-decoration:none;color:white;display:flex;flex-direction:column;transition:transform 0.2s,box-shadow 0.2s}
+    .page-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.5)}
+    .card-preview{height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+    .card-icon{font-size:3rem;position:relative;z-index:2}
+    .card-body{padding:22px;background:#111118;flex:1}
+    .card-num{font-size:0.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:8px}
+    .card-name{font-size:1.1rem;font-weight:800;margin-bottom:8px;color:#FF6B35}
+    .card-desc{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:18px}
+    .card-traits{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
+    .trait{font-size:0.6rem;font-weight:700;letter-spacing:1px;padding:3px 9px;border-radius:3px;background:rgba(196,30,58,0.15);color:#FF6B35;border:1px solid rgba(196,30,58,0.25)}
+    .card-cta{display:block;padding:11px;text-align:center;font-size:0.75rem;font-weight:700;letter-spacing:1px;background:linear-gradient(135deg,#C41E3A,#F7931E);color:white;text-decoration:none;transition:opacity 0.2s}
+    .card-cta:hover{opacity:0.85}
+    @media(max-width:900px){.pages-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <h1>Cottonwood <span>FC</span> — Inner Pages</h1>
+    <p>7 page templates for the WordPress theme · Click any to preview</p>
+  </div>
+  <a href="index.html" class="back-btn">← All Concepts</a>
+</header>
+<main>
+  <div class="intro">
+    <h2>Page Templates</h2>
+    <p>Each page is a WordPress template — select it from the Template dropdown when creating a Page in wp-admin. All use the same nav, footer, and design system as the homepage.</p>
+  </div>
+  <div class="pages-grid">
+
+    <a href="tryouts-preview.html" class="page-card">
+      <div class="card-preview" style="background:linear-gradient(135deg,#8B0F20,#C41E3A)">
+        <div class="card-icon">⚽</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">Page 01</div>
+        <div class="card-name">Tryouts</div>
+        <div class="card-desc">Tryout schedule by age group, how-it-works steps, what to bring, and CTA band. Dates are editable via the page editor.</div>
+        <div class="card-traits"><span class="trait">Date Table</span><span class="trait">Steps Grid</span><span class="trait">Checklist</span></div>
+      </div>
+      <div class="card-cta">Preview Page →</div>
+    </a>
+
+    <a href="fees-preview.html" class="page-card">
+      <div class="card-preview" style="background:linear-gradient(135deg,#1A1A1A,#C41E3A)">
+        <div class="card-icon">💰</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">Page 02</div>
+        <div class="card-name">Fees &amp; Costs</div>
+        <div class="card-desc">Four fee category cards, full cost table by age group, uniform package details, and an FAQ section. Update fee amounts each season.</div>
+        <div class="card-traits"><span class="trait">Fee Cards</span><span class="trait">Cost Table</span><span class="trait">FAQ</span></div>
+      </div>
+      <div class="card-cta">Preview Page →</div>
+    </a>
+
+    <a href="teams-preview.html" class="page-card">
+      <div class="card-preview" style="background:linear-gradient(135deg,#C41E3A,#F7931E)">
+        <div class="card-icon">🏆</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">Page 03</div>
+        <div class="card-name">Teams</div>
+        <div class="card-desc">Stats bar, league cards (UYSA/SCL/IRL/X), and full division breakdown U6–U19 with color-coded age group cards and schedule links.</div>
+        <div class="card-traits"><span class="trait">Division Blocks</span><span class="trait">League Cards</span><span class="trait">Hex Badges</span></div>
+      </div>
+      <div class="card-cta">Preview Page →</div>
+    </a>
+
+    <a href="programs-preview.html" class="page-card">
+      <div class="card-preview" style="background:linear-gradient(135deg,#2D6A2D,#C41E3A)">
+        <div class="card-icon">📋</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">Page 04</div>
+        <div class="card-name">Programs</div>
+        <div class="card-desc">Four program cards (Academy / Competitive / Premier / Elite) with feature lists and CTAs, plus specialty programs: Goalkeeping and Summer Camp.</div>
+        <div class="card-traits"><span class="trait">Program Cards</span><span class="trait">Feature Lists</span><span class="trait">Specialty</span></div>
+      </div>
+      <div class="card-cta">Preview Page →</div>
+    </a>
+
+    <a href="about-preview.html" class="page-card">
+      <div class="card-preview" style="background:linear-gradient(135deg,#1A1A1A,#3a1a1a)">
+        <div class="card-icon">🏛️</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">Page 05</div>
+        <div class="card-name">About</div>
+        <div class="card-desc">Mission statement, club history timeline (2014–2026), development philosophy, parent expectations, and an editable board of directors section.</div>
+        <div class="card-traits"><span class="trait">Timeline</span><span class="trait">Philosophy</span><span class="trait">Board</span></div>
+      </div>
+      <div class="card-cta">Preview Page →</div>
+    </a>
+
+    <a href="schedule-preview.html" class="page-card">
+      <div class="card-preview" style="background:linear-gradient(135deg,#C41E3A,#1A1A1A)">
+        <div class="card-icon">📅</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">Page 06</div>
+        <div class="card-name">Schedule</div>
+        <div class="card-desc">UYSA portal links, age group quick-link grid, Butler Fields info with address and Google Maps embed slot. Live schedules link out to UYSA.</div>
+        <div class="card-traits"><span class="trait">Portal Links</span><span class="trait">Age Grid</span><span class="trait">Map Embed</span></div>
+      </div>
+      <div class="card-cta">Preview Page →</div>
+    </a>
+
+    <a href="contact-preview.html" class="page-card">
+      <div class="card-preview" style="background:linear-gradient(135deg,#F7931E,#C41E3A)">
+        <div class="card-icon">📬</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">Page 07</div>
+        <div class="card-name">Contact</div>
+        <div class="card-desc">Split layout — contact details on the left, working contact form on the right. Supports Contact Form 7 plugin. Location map embed slot included.</div>
+        <div class="card-traits"><span class="trait">Contact Form</span><span class="trait">Split Layout</span><span class="trait">Map Embed</span></div>
+      </div>
+      <div class="card-cta">Preview Page →</div>
+    </a>
+
+  </div>
+</main>
+</body>
+</html>
