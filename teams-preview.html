@@ -54,60 +54,117 @@
   </div>
 </section>
 
+<style>
+  /* Team Roster Card styles */
+  .gender-block { margin-bottom: 56px; }
+  .gender-block:last-child { margin-bottom: 0; }
+  .gender-header { display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:10px;font-size:1.1rem;font-weight:900;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:24px;color:white; }
+  .gender-girls { background:linear-gradient(135deg,#C41E3A 0%,#8B0F20 100%); }
+  .gender-boys  { background:linear-gradient(135deg,#1a3a6e 0%,#0f2247 100%); }
+  .gender-icon  { font-size:1.3rem; }
+  .gender-count { margin-left:auto;font-size:0.78rem;font-weight:700;opacity:0.85;background:rgba(255,255,255,0.18);padding:3px 10px;border-radius:20px; }
+  .team-cards-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px; }
+  .team-card-sm { display:flex;align-items:center;justify-content:space-between;background:white;border:1px solid #e5e7eb;border-left:4px solid #C41E3A;border-radius:8px;padding:11px 14px;text-decoration:none;color:#1A1A1A;transition:transform 0.15s,box-shadow 0.15s;gap:8px; }
+  .team-card-sm:hover { transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.09); }
+  .tc-name { font-size:0.82rem;font-weight:800;letter-spacing:0.2px;color:#1A1A1A;line-height:1.3; }
+  .tc-sched { font-size:0.7rem;font-weight:700;color:#C41E3A;white-space:nowrap;flex-shrink:0;opacity:0;transition:opacity 0.15s; }
+  .team-card-sm:hover .tc-sched { opacity:1; }
+</style>
+
 <section class="inner-sect bg-light">
   <div class="inner-wrap">
     <div class="sec-eyebrow">2025–2026 Season</div>
-    <h2 class="sec-title">Teams by Age Group</h2>
+    <h2 class="sec-title">Teams</h2>
+    <p style="color:#777;font-size:0.95rem;margin-bottom:40px;">Click any team to view their live schedule and standings on UYSA SportsAffinity.</p>
 
-    <!-- ACADEMY -->
-    <div class="division-block">
-      <div class="division-header" style="border-left-color:#2D6A2D">
-        <h3 class="division-name" style="color:#2D6A2D">Academy</h3>
-        <p class="division-desc">Introductory soccer in a fun, low-pressure environment. Focus is on love of the game, basic skills, and positive experience.</p>
+    <!-- GIRLS -->
+    <div class="gender-block">
+      <div class="gender-header gender-girls">
+        <span class="gender-icon">♀</span> Girls Teams
+        <span class="gender-count">37 teams</span>
       </div>
-      <div class="team-group-grid">
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#2D6A2D,#2D6A2D99)">U6</div><div class="tg-age">Ages 5–6</div><div class="tg-league" style="color:#2D6A2D">Academy</div><p class="tg-desc">Recreational — non-competitive introduction to soccer.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#2D6A2D,#2D6A2D99)">U8</div><div class="tg-age">Ages 7–8</div><div class="tg-league" style="color:#2D6A2D">Academy</div><p class="tg-desc">Small-sided games, fundamental skill development, and teamwork.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
+      <div class="team-cards-grid">
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G07%20Red%20BW" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G07 Red BW</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G08%20Red%20MS" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G08 Red MS</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G10%20Red%20BD" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G10 Red BD</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G10%20White%20AM" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G10 White AM</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G11%20Red%20TT" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G11 Red TT</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G11%20White%20ND" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G11 White ND</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G11%20Gold%20RW" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G11 Gold RW</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G12%20Red%20PJ" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G12 Red PJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G12%20White%20KA" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G12 White KA</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G12%20Gold%20RJ" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G12 Gold RJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G12%20Gray%20CC" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">G12 Gray CC</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G13%20Red%20KC" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G13 Red KC</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G13%20White%20ND" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G13 White ND</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G13%20Gold%20SS" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G13 Gold SS</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G13%20Gray%20JB" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">G13 Gray JB</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G13%20Black%20AM" target="_blank" rel="noopener" class="team-card-sm tc-black" style="border-left-color:#1A1A1A"><span class="tc-name">G13 Black AM</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G13%20Silver%20NM" target="_blank" rel="noopener" class="team-card-sm tc-silver" style="border-left-color:#A0AEC0"><span class="tc-name">G13 Silver NM</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G14%20Red%20BJ" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G14 Red BJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G14%20White%20DO" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G14 White DO</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G14%20Gold%20CC" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G14 Gold CC</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G14%20Gray%20JJ" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">G14 Gray JJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G15%20Red%20HH" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G15 Red HH</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G15%20White%20KF" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G15 White KF</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G15%20Gold%20EC" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G15 Gold EC</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G16%20Red%20JS" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G16 Red JS</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G16%20White%20AR" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G16 White AR</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G16%20Gold%20AM" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G16 Gold AM</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G16%20Gray%20DF" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">G16 Gray DF</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G16%20Black%20RW" target="_blank" rel="noopener" class="team-card-sm tc-black" style="border-left-color:#1A1A1A"><span class="tc-name">G16 Black RW</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G17%20Red%20BJ" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G17 Red BJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G17%20White%20AB" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G17 White AB</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G17%20Gold%20CA" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G17 Gold CA</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20G17%20Gray%20LS" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">G17 Gray LS</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406762" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G18 Red AG</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406763" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G18 White AG</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406768" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">G18 Gold AG</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406769" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">G19 Red AJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406722" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">G19 White AJ</span><span class="tc-sched">Schedule →</span></a>
       </div>
     </div>
 
-    <!-- COMPETITIVE -->
-    <div class="division-block">
-      <div class="division-header" style="border-left-color:#F7931E">
-        <h3 class="division-name" style="color:#F7931E">Competitive</h3>
-        <p class="division-desc">Transition from recreational to structured competition. Players develop positional awareness, soccer IQ, and team tactics.</p>
+    <!-- BOYS -->
+    <div class="gender-block">
+      <div class="gender-header gender-boys">
+        <span class="gender-icon">♂</span> Boys Teams
+        <span class="gender-count">36 teams</span>
       </div>
-      <div class="team-group-grid">
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#F7931E,#F7931E99)">U10</div><div class="tg-age">Ages 9–10</div><div class="tg-league">Competitive</div><p class="tg-desc">UYSA-registered competition. Emphasis on fundamentals and game reading.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#F7931E,#F7931E99)">U12</div><div class="tg-age">Ages 11–12</div><div class="tg-league">Competitive</div><p class="tg-desc">SCL and IRL league play. Players begin developing positional identity.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
+      <div class="team-cards-grid">
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B12%20Red%20DF" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B12 Red DF</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B12%20White%20BD" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B12 White BD</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B13%20Red%20JG" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B13 Red JG</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B13%20White%20MA" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B13 White MA</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B13%20Gold%20GG" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">B13 Gold GG</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B14%20Red%20TS" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B14 Red TS</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B14%20White%20TS" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B14 White TS</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B14%20Gold%20MS" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">B14 Gold MS</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B14%20Gray%20JN" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">B14 Gray JN</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B15%20Red%20LC" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B15 Red LC</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B15%20White%20NF" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B15 White NF</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B15%20Gold%20JJ" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">B15 Gold JJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B15%20Gray%20TT" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">B15 Gray TT</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B15%20Black%20CC" target="_blank" rel="noopener" class="team-card-sm tc-black" style="border-left-color:#1A1A1A"><span class="tc-name">B15 Black CC</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B15%20Silver%20AJ" target="_blank" rel="noopener" class="team-card-sm tc-silver" style="border-left-color:#A0AEC0"><span class="tc-name">B15 Silver AJ</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B16%20Red%20RH" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B16 Red RH</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B16%20White%20SP" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B16 White SP</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B16%20Gold%20BN" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">B16 Gold BN</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B16%20Gray%20JK" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">B16 Gray JK</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B17%20Red%20CH" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B17 Red CH</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B17%20White%20CH" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B17 White CH</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B17%20Gold%20TA" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">B17 Gold TA</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://uysa.sportsaffinity.com/tour/public/info/schedule_results2.asp?teamname=Cottonwood%20FC%20B17%20Gray%20TM" target="_blank" rel="noopener" class="team-card-sm tc-gray" style="border-left-color:#6B7280"><span class="tc-name">B17 Gray TM</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406728" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B18 Red KF</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406740" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B18 White KF</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406739" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">B18 Gold KF</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406697" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B19 Red MB</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406698" target="_blank" rel="noopener" class="team-card-sm tc-white" style="border-left-color:#9CA3AF"><span class="tc-name">B19 White MB</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406713" target="_blank" rel="noopener" class="team-card-sm tc-gold" style="border-left-color:#C69B2A"><span class="tc-name">B19 Gold AR</span><span class="tc-sched">Schedule →</span></a>
+        <a href="https://scheduler.leaguelobster.com/2600518/spring-2026-district-3-academy-league/spring-2026/?mode=full#team=26406690" target="_blank" rel="noopener" class="team-card-sm tc-red" style="border-left-color:#C41E3A"><span class="tc-name">B20 Red AP</span><span class="tc-sched">Schedule →</span></a>
       </div>
     </div>
 
-    <!-- PREMIER -->
-    <div class="division-block">
-      <div class="division-header" style="border-left-color:#C41E3A">
-        <h3 class="division-name" style="color:#C41E3A">Premier</h3>
-        <p class="division-desc">High-level competitive soccer for serious players. UYSA Premier and SCL competition, multiple training sessions per week.</p>
-      </div>
-      <div class="team-group-grid">
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#C41E3A,#C41E3A99)">U14</div><div class="tg-age">Ages 13–14</div><div class="tg-league">UYSA Premier / SCL</div><p class="tg-desc">Rigorous training schedule, higher-level competition.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#C41E3A,#C41E3A99)">U15</div><div class="tg-age">Age 15</div><div class="tg-league">UYSA Premier / SCL</div><p class="tg-desc">College-prep level competition and development.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#C41E3A,#C41E3A99)">U16</div><div class="tg-age">Age 16</div><div class="tg-league">UYSA Premier / SCL</div><p class="tg-desc">Advanced tactical training, tournament play.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#C41E3A,#C41E3A99)">U17</div><div class="tg-age">Age 17</div><div class="tg-league">UYSA Premier</div><p class="tg-desc">Elite-level competition, exposure for college recruitment.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-      </div>
-    </div>
-
-    <!-- ELITE -->
-    <div class="division-block">
-      <div class="division-header" style="border-left-color:#1A1A1A">
-        <h3 class="division-name" style="color:#1A1A1A">Elite</h3>
-        <p class="division-desc">Top-flight competitive soccer for our most advanced players. Focused preparation for post-high school opportunities.</p>
-      </div>
-      <div class="team-group-grid">
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#1A1A1A,#44444499)">U18</div><div class="tg-age">Age 18</div><div class="tg-league">UYSA Premier</div><p class="tg-desc">Full-commitment competitive program, college exposure.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-        <div class="team-group-card"><div class="tg-hex" style="background:linear-gradient(145deg,#1A1A1A,#44444499)">U19</div><div class="tg-age">Age 19</div><div class="tg-league">UYSA Premier</div><p class="tg-desc">Final club year — college preparation and elite competition.</p><a href="#" class="tg-sched-link">View Schedule →</a></div>
-      </div>
-    </div>
   </div>
 </section>
 
